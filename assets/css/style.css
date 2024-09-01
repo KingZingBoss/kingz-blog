@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+:root {
+    --primary-color: #d6ad60;
+    --secondary-color: #121212;
+    --tertiary-color: #e6ca95;
+    --white: #fff;
+    --font-primary: "Inter Tight", sans-serif;
+    --font-secondary: "Space Grotesk";
+    --cubic-bezier: cubic-bezier(0.57, -0.01, 0.21, 0.89);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--tertiary-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+* {
+    font-family: var(--font-primary);
+    transition: all 0.7s var(--cubic-bezier);
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-secondary);
+}
+
+nav {
+    padding: 2rem;
+    background: var(--primary-color);
+    border-bottom: var(--primary-color) 1px solid;
+}
+
+nav a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--white), var(--white));
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    font-family: var(--font-secondary);
+    background-size: 0% 3px;
+    padding: 1rem;
+    margin: 10px;
+    color: var(--white);
+    border-radius: 1px;
+}
+
+nav a:hover {
+    background-size: 100% 3px;
+    border-radius: 0rem;
+}
+
+nav .right {
+    float: right;
+}
+
+.top {
+    text-align: center;
+    padding: 7rem;
+    background: var(--primary-color);
+}
+
+.top * {
+    color: var(--white);
+}
+
+.top h1 {
+    font-family: var(--font-secondary);
+    font-size: 5rem;
+    margin-bottom: -20px;
+    color: var(--white);
+}
+
+.top h2 {
+    color: var(--white);
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.shlong {
+    padding-top: 100px;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-bottom: 100px;
+}
+
+pre * {
+    font-family: var(--font-secondary);
+}
+
+.sticky {
+    position: fixed;
+    transition: position 0.5s var(--cubic-bezier);
+    z-index: 10000;
+    top: 0;
+    width: 97%;
+}
+
+.sticky+.shlong {
+    padding-top: 60px;
+}
+
+footer {
+    text-align: center;
+    padding: 5rem;
+    background-color: #d6ad60;
+    /* or another color */
+    color: #fff;
+}
+
+footer * {
+    color: #fff;
+}
+
+footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    background-image: linear-gradient(var(--white), var(--white));
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    font-family: var(--font-secondary);
+    background-size: 0% 3px;
+    padding: 1rem;
+    margin: 10px;
+    color: var(--white);
+    border-radius: 1px;
+    text-decoration: none;
+}
+
+footer a i {
+    font-size: 24px;
+    color: #fff;
+    vertical-align: middle;
+}
+
+footer a:hover {
+    background-size: 100% 3px;
+    border-radius: 0rem;
+}
+
+::selection {
+    color: var(--white);
+    background: var(--primary-color);
+}
+
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+    color: var(--white);
+}
+
+.filters {
+    padding: 2rem;
+    text-align: center;
+    background: var(--primary-color);
+}
+
+.filters select,
+.filters input {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+    width: 200px;
+}
+
+.shlong {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.shlong-card {
+    background: var(--tertiary-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 1rem;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s var(--cubic-bezier);
+}
+
+.shlong-card:hover {
+    transform: scale(1.05);
+}
+
+.shlong-card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+/* New CSS for transparency and alignment */
+.shlong-card .meta {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+}
+
+.shlong-card .meta span {
+    display: inline-block;
+}
+.blog {
+    padding-top: 100px;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-bottom: 100px;
+}
+
+pre * {
+    font-family: var(--font-secondary);
+}
+
+.sticky {
+    position: fixed;
+    transition: position 0.5s var(--cubic-bezier);
+    top: 0;
+    width: 97%;
+}
+
+.sticky+.blog {
+    padding-top: 60px;
+}
+@media screen and (max-width: 600px) {
+
+    .filters select,
+    .filters input {
+        width: 100%;
+    }
+
+    .shlong-card {
+        width: 100%;
+    }
+}
+
+
+.blog {
+    padding-top: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 100px;
+}
+
+pre * {
+    font-family: var(--font-secondary);
+}
+
+.sticky {
+    position: fixed;
+    transition: position 0.5s var(--cubic-bezier);
+    top: 0;
+    width: 97%;
+}
+
+.sticky+.blog {
+    padding-top: 60px;
+}
+
+@media screen and (max-width: 1000px) {
+    .blog {
+        padding: 100px;
+    }
+}
+a{
+    text-decoration: none;
+}

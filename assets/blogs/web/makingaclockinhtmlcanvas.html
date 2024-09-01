@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        KingZingBossNoreos' Blog || Web || Making a Clock in HTML Canvas
+    </title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.css">
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</head>
+
+<body>
+    <div class="top">
+        <h1>
+            Making a Clock in HTML Canvas
+        </h1>
+        <h2 class="subtitle">
+            <i class="bx bx-timer"></i> 9-min read
+        </h2>
+    </div>
+    <nav id="navbar">
+        <a href="../../../index.html">
+            KingZingBossNoreos
+        </a>
+
+        <div class="right">
+            <a href="">
+                About Me
+            </a>
+            <a href="">
+                Blog Posts
+            </a>
+            <a href="">
+                Resources
+            </a>
+            <a href="">
+                Contact
+            </a>
+        </div>
+    </nav>
+    <div class="blog">
+        <p>
+            Hello, everyone! I’m KingZingBossNoreos, and today I’ll walk you through creating a beautiful analogue clock
+            using HTML5 Canvas, JavaScript, and CSS. This project is perfect for those looking to enhance their web
+            development skills and create something visually appealing and functional.
+        </p>
+        <p>
+            Analogue clocks have a timeless charm, and building one from scratch is a fantastic way to understand the
+            basics of drawing on the canvas and manipulating time with JavaScript. Whether you’re a beginner or an
+            experienced developer, this tutorial will guide you through the process. By the end, you’ll have a fully
+            functional analogue clock that you can customize.
+        </p>
+        <p>
+            Let’s dive in and start by setting up our HTML structure!
+        </p>
+        <center>
+            <h2>
+                HTML Structure
+            </h2>
+        </center>
+        <p>
+            We’ll start with a simple HTML structure. Our clock will be drawn on a canvas element. I'll set my height
+            and width to 500 for this project.
+        </p>
+        <pre>
+                <code class="language-html">
+                    &lt;canvas id="canvas" width="500" height="500"&gt;&lt;/canvas&gt;
+                </code>
+            </pre>
+        <center>
+            <h2>
+                CSS Styling
+            </h2>
+        </center>
+        <p>
+            Next, let’s style our clock. We’ll use some basic CSS to centre the canvas on the page and give it a nice
+            border and shadow.
+        </p>
+        <pre>
+                <code class="language-css">
+                    * {
+                        transition: all 0.2s cubic-bezier(0.57, -0.01, 0.21, 0.89);
+                        color: #121212;
+                        font-family: "Crucial", sans-serif;
+                    }
+                </code>
+            </pre>
+        <p>
+            This sets a smooth transition effect for all elements, applies a default text color, and sets the font
+            family to “Crucial”. You can replace “Crucial” with any font of your choice.
+        </p>
+        <pre>
+                <code class="language-css">
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        background-color: #f0f0f0;
+                        margin: 0;
+                    }
+                </code>
+            </pre>
+        <p>
+            This centres the canvas both horizontally and vertically on the page, sets the background color to a light
+            gray, and removes the default margin.
+        </p>
+        <pre>
+                <code class="language-css">
+                    canvas {
+                        background-color: #fff;
+                        border: 10px solid #121212;
+                        border-radius: 50%;
+                        box-shadow: 0 0 100px #12121280;
+                    }
+                </code>
+            </pre>
+        <p>
+            This styles the canvas with a white background, a solid black border, rounded corners to make it circular,
+            and a subtle shadow for a 3D effect.
+        </p>
+        <center>
+            <h2>
+                JavaScript Code
+            </h2>
+        </center>
+        <p>
+            Now, let’s move on to the JavaScript. We’ll use JavaScript to draw the clock face, numbers, ticks, and
+            hands.
+        </p>
+        <center>
+            <h3>
+                Setting Up the Canvas
+            </h3>
+        </center>
+        <p>
+            First, we get the canvas element and its 2D context. We also set the radius based on the canvas height.
+        </p>
+        <pre>
+                <code class="language-js">
+                    const canvas = document.getElementById("canvas");
+                    const ctx = canvas.getContext("2d");
+                    let radius = canvas.height / 2;
+                    ctx.translate(radius, radius);
+                    radius = radius * 0.9;
+                    setInterval(drawClock, 1000);
+                </code>
+            </pre>
+        <center>
+            <h3>
+                Drawing the Clock
+            </h3>
+        </center>
+        <p>
+            The drawClock function is called every second to update the clock. It calls other functions to draw the
+            face, numbers, ticks, and hands.
+        </p>
+        <pre>
+                <code class="language-js">
+                    function drawClock() {
+                        drawFace(ctx, radius);
+                        drawNumbers(ctx, radius);
+                        drawTicks(ctx, radius);
+                        drawTime(ctx, radius);
+                    }
+                </code>
+            </pre>
+        <center>
+            <h3>
+                Drawing the Clock Face
+            </h3>
+        </center>
+        <p>
+            The drawFace function draws the clock face and the centre circle.
+        </p>
+        <pre>
+                <code class="language-js">
+                    function drawFace(ctx, radius) {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+                        ctx.fillStyle = "white";
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+                        ctx.fillStyle = "#121212";
+                        ctx.fill();
+                    }
+                </code>
+            </pre>
+        <center>
+            <h3>
+                Drawing the Numbers
+            </h3>
+        </center>
+        <p>
+            The drawNumbers function places the numbers around the clock face.
+        </p>
+        <pre>
+                <code class="language-js">
+                    function drawNumbers(ctx, radius) {
+                        ctx.font = radius * 0.15 + "px 'Crucial'";
+                        ctx.textBaseline = "middle";
+                        ctx.textAlign = "center";
+                        ctx.fillStyle = "#121212";
+                        for (let num = 1; num < 13; num++) {
+                          let ang = (num * Math.PI) / 6;
+                          ctx.rotate(ang);
+                          ctx.translate(0, -radius * 0.85);
+                          ctx.rotate(-ang);
+                          ctx.fillText(num.toString(), 0, 0);
+                          ctx.rotate(ang);
+                          ctx.translate(0, radius * 0.85);
+                          ctx.rotate(-ang);
+                        }
+                    }
+                </code>
+            </pre>
+        <center>
+            <h3>
+                Drawing the Ticks
+            </h3>
+        </center>
+        <p>
+            The drawTicks function draws the minute and hour ticks.
+        </p>
+        <pre>
+                <code class="language-js">
+                    function drawTicks(ctx, radius) {
+                        for (let i = 0; i < 60; i++) {
+                          let ang = (i * Math.PI) / 30;
+                          ctx.rotate(ang);
+                          ctx.translate(0, -radius);
+                          ctx.beginPath();
+                          ctx.moveTo(0, 0);
+                          ctx.lineTo(0, i % 5 === 0 ? radius * 0.08 : radius * 0.04); // Shortened tick height
+                          ctx.strokeStyle = "#121212";
+                          ctx.lineWidth = 2;
+                          ctx.stroke();
+                          ctx.translate(0, radius);
+                          ctx.rotate(-ang);
+                        }
+                      }
+                </code>
+            </pre>
+        <center>
+            <h3>
+                Drawing the Hands
+            </h3>
+        </center>
+        <p>
+            The drawTime function calculates the positions of the hour, minute, and second hands and draws them using
+            the drawHand function.
+        </p>
+        <pre>
+                <code class="language-js">
+                    function drawTime(ctx, radius) {
+                        const now = new Date();
+                        let hour = now.getHours();
+                        let minute = now.getMinutes();
+                        let second = now.getSeconds();
+                        //hour
+                        hour = hour % 12;
+                        hour =
+                          (hour * Math.PI) / 6 +
+                          (minute * Math.PI) / (6 * 60) +
+                          (second * Math.PI) / (360 * 60);
+                        drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+                        //minute
+                        minute = (minute * Math.PI) / 30 + (second * Math.PI) / (30 * 60);
+                        drawHand(ctx, minute, radius * 0.75, radius * 0.07); // Shortened minute hand
+                        // second
+                        second = (second * Math.PI) / 30;
+                        drawHand(ctx, second, radius * 0.9, radius * 0.02, "red");
+                      }
+                </code>
+            </pre>
+        <p>
+            The drawHand function draws each hand of the clock.
+        </p>
+        <pre>
+                <code class="language-js">
+                    function drawHand(ctx, pos, length, width, color = "#121212") {
+                        ctx.beginPath();
+                        ctx.lineWidth = width;
+                        ctx.lineCap = "round";
+                        ctx.strokeStyle = color;
+                        ctx.moveTo(0, 0);
+                        ctx.rotate(pos);
+                        ctx.lineTo(0, -length);
+                        ctx.stroke();
+                        ctx.rotate(-pos);
+                    }
+                </code>
+            </pre>
+        <center>
+            <h2>
+                Result
+            </h2>
+        </center>
+        <p>
+            The result of this clock is shown below.
+        </p>
+        <p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-slug-hash="LYKBQJX"
+            data-pen-title="Clock" data-user="The-ADAD"
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/The-ADAD/pen/LYKBQJX">
+                    Clock</a> by The ADAD (<a href="https://codepen.io/The-ADAD">@KingZingBossNoreos</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <center>
+            <h2>
+                Conclusion
+            </h2>
+        </center>
+        <p>
+            And there you have it! A fully functional analogue clock created with HTML5 Canvas, JavaScript, and CSS.
+            Feel free to customize the font, colours, and styles to match your preferences.
+        </p>
+        <pre>
+            <code class="language-plaintext">
+                Happy coding!
+            </code>
+        </pre>
+    </div>
+    <footer>
+        <p>Designed in 2024 by KingZingBossNoreos</p>
+        <a href="https://kzbn.com.ng" target="_blank">
+            <i class='bx bx-home'></i> Portfolio
+        </a>
+        <a href="https://github.com/KingZingBoss" target="_blank">
+            <i class='bx bxl-github'></i> GitHub
+        </a>
+        <a href="https://codepen.io/KingZingBoss" target="_blank">
+            <i class='bx bxl-codepen'></i> CodePen
+        </a>
+    </footer>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+<script src="../../js/script.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>
