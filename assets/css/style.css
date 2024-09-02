@@ -104,7 +104,7 @@ nav .right {
     opacity: 0.8;
 }
 
-.shlong {
+.blog {
     padding-top: 100px;
     padding-left: 300px;
     padding-right: 300px;
@@ -118,12 +118,11 @@ pre * {
 .sticky {
     position: fixed;
     transition: position 0.5s var(--cubic-bezier);
-    z-index: 10000;
     top: 0;
     width: 97%;
 }
 
-.sticky+.shlong {
+.sticky+.blog {
     padding-top: 60px;
 }
 
@@ -179,119 +178,8 @@ footer a:hover {
     color: var(--white);
 }
 
-.filters {
-    padding: 2rem;
-    text-align: center;
-    background: var(--primary-color);
-}
-
-.filters select,
-.filters input {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    border: 1px solid var(--tertiary-color);
-    border-radius: 4px;
-    font-family: var(--font-secondary);
-    width: 200px;
-}
-
-.shlong {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.shlong-card {
-    background: var(--tertiary-color);
-    border-radius: 8px;
-    padding: 2rem;
-    margin: 1rem;
-    width: 300px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s var(--cubic-bezier);
-}
-
-.shlong-card:hover {
-    transform: scale(1.05);
-}
-
-.shlong-card h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-}
-
-/* New CSS for transparency and alignment */
-.shlong-card .meta {
-    display: flex;
-    justify-content: space-between;
-    opacity: 0.7;
-}
-
-.shlong-card .meta span {
-    display: inline-block;
-}
-.blog {
-    padding-top: 100px;
-    padding-left: 300px;
-    padding-right: 300px;
-    padding-bottom: 100px;
-}
-
-pre * {
-    font-family: var(--font-secondary);
-}
-
-.sticky {
-    position: fixed;
-    transition: position 0.5s var(--cubic-bezier);
-    top: 0;
-    width: 97%;
-}
-
-.sticky+.blog {
-    padding-top: 60px;
-}
-@media screen and (max-width: 600px) {
-
-    .filters select,
-    .filters input {
-        width: 100%;
-    }
-
-    .shlong-card {
-        width: 100%;
-    }
-}
-
-
-.blog {
-    padding-top: 100px;
-    padding-left: 200px;
-    padding-right: 200px;
-    padding-bottom: 100px;
-}
-
-pre * {
-    font-family: var(--font-secondary);
-}
-
-.sticky {
-    position: fixed;
-    transition: position 0.5s var(--cubic-bezier);
-    top: 0;
-    width: 97%;
-}
-
-.sticky+.blog {
-    padding-top: 60px;
-}
-
 @media screen and (max-width: 1000px) {
     .blog {
         padding: 100px;
     }
-}
-a{
-    text-decoration: none;
 }
